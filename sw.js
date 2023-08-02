@@ -4,11 +4,11 @@ self.addEventListener('install', (event) => {
       caches.open('app-cache').then((cache) => {
         return cache.addAll([
           '/',
-          '/index.html',
-          '/style.css',
-          '/bootstrap.css',
-          '/script.js',
-          '/bootstrap.js',
+          'index.html',
+          'style.css',
+          'bootstrap.css',
+          'script.js',
+          'bootstrap.js',
         ]);
       })
     );
