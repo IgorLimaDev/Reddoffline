@@ -22,7 +22,6 @@ function addNote() {
 	var sub = document.querySelector(".sub").value;
 	var quantity = document.querySelector(".quantity").value;
 	requestRedditPosts(sub, quantity);
-    getNotes();
 }
 
 function requestRedditPosts(sub, quantity) {
