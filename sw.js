@@ -1,5 +1,5 @@
 // sw.js
-const reddofflineCache = 'app-cache-v3';
+const reddofflineCache = 'app-cache-v4';
 self.addEventListener('install', (event) => {
     event.waitUntil(
       caches.open(reddofflineCache).then((cache) => {
