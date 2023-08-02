@@ -12,8 +12,18 @@
   <body>
     <h1 class="text-center">Reddoffline</h1>
     <div class="row">
-        <div class="col-md-6">    <input class="sub form-control" />        </div>
-        <div class="col-md-6">    <input class="quantity form-control" />        </div>
+        <div class="col-md-6">
+			    <input placeholder="Subreddit" class="sub form-control" />
+				<select class="autofill-subs form-control" onChange="autofill()">
+					<option value="">Nenhum</option>
+					<option value="eusouobabaca">EuSouOBabaca</option>
+					<option value="30mais">30mais</option>
+					<option value="communismmemes">CommunismMemes</option>
+					<option value="thedeprogram">TheDeprogram</option>
+					<option value="brasil">Brasil</option>
+				</select>
+		</div>
+        <div class="col-md-6">    <input placeholder="Quantity" class="quantity form-control" />        </div>
         <div class="col-md-6 text-center"><button class="btn btn-primary" onClick="addNote()">Salvar Posts</button></div>
         <div class="col-md-6 text-center"><button class="btn btn-primary" onClick="getNotes()">Carregar Posts Offline</button></div>
     </div>

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function getNotes() {
-    document.querySelector(".noteinput").value = "";
+	document.querySelector(".notes").innerHTML = "";
     if(localStorage.getItem("notes")) {
 		var posts = JSON.parse(localStorage.getItem("notes"));
 		for(post of posts) {
@@ -24,11 +24,16 @@ function addNote() {
 	requestRedditPosts(sub, quantity);
 }
 
+function autofill() {
+	var val = document.querySelector(".autofill-subs").value;
+	document.querySelector(".sub").value = val;
+}
+
 function requestRedditPosts(sub, quantity) {
 	document.querySelector(".notes").innerHTML = "Carregando...";
 
 	const subreddit = sub;
-const limit = quantity; // Number of posts to retrieve (max 100)
+const limit = quantity || 10; // Number of posts to retrieve (max 100)
 
 const url = `https://www.reddit.com/r/${subreddit}/new.json?limit=${limit}`;
 
@@ -41,7 +46,7 @@ fetch(url)
 	  let parsedPosts = [];
       posts.forEach((post) => {
         const title = post.data.title;
-        const text = post.data.selftext.replace("\\n", "<br/>");
+        const text = post.data.selftext.replaceAll("\n", "<div class='line-break'></div>");
 		parsedPosts.push({title:title, text:text});
       });
 	  localStorage.setItem("notes", JSON.stringify(parsedPosts));

@@ -1,5 +1,15 @@
+body {
+    background-color: #313131;
+    color: #afafaf;
+}
+
 .post {
-	margin-bottom:10px;
-	padding:10px;
-	border-bottom:1px black solid;
+	margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px black solid;
+    margin-top: 20px;
+}
+
+.line-break {
+	height:12px;
 }
