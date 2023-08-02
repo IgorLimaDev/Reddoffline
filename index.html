@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reddoffline</title>
+    <link rel="stylesheet" href="bootstrap.css"/>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+
+    <script src="bootstrap.js"></script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+      .register('/sw.js')
+      .then((registration) => {
+        console.log('Service Worker registered');
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+  }
+
+    </script>
+    
+  </body>
+</html>
