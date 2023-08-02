@@ -8,8 +8,8 @@ self.addEventListener('install', (event) => {
           'index.html',
           'style.css',
           'bootstrap.css',
-          'script.js',
           'bootstrap.js',
+          'script.js',
         ]);
       })
     );
