@@ -1,8 +1,8 @@
 // sw.js
-var cacheName = 'app-cache-v3';
+const reddofflineCache = 'app-cache-v3';
 self.addEventListener('install', (event) => {
     event.waitUntil(
-      caches.open(cacheName).then((cache) => {
+      caches.open(reddofflineCache).then((cache) => {
         return cache.addAll([
           '/',
           'index.html',
@@ -24,7 +24,7 @@ self.addEventListener('install', (event) => {
           return r;
         }
         const response = await fetch(e.request);
-        const cache = await caches.open(cacheName);
+        const cache = await caches.open(reddofflineCache);
         console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
         cache.put(e.request, response.clone());
         return response;
