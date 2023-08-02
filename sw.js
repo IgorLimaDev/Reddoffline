@@ -1,7 +1,8 @@
 // sw.js
+var cacheName = 'app-cache-v3';
 self.addEventListener('install', (event) => {
     event.waitUntil(
-      caches.open('app-cache-v2').then((cache) => {
+      caches.open(cacheName).then((cache) => {
         return cache.addAll([
           '/',
           'index.html',
