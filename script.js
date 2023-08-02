@@ -41,7 +41,7 @@ fetch(url)
 	  let parsedPosts = [];
       posts.forEach((post) => {
         const title = post.data.title;
-        const text = post.data.selftext;
+        const text = post.data.selftext.replace("\\n", "<br/>");
 		parsedPosts.push({title:title, text:text});
       });
 	  localStorage.setItem("notes", JSON.stringify(parsedPosts));
