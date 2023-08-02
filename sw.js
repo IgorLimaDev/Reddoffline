@@ -32,3 +32,13 @@ self.addEventListener('install', (event) => {
       })(),
     );
   });
+
+  self.addEventListener('activate', async (event) => {
+  
+      const existingCaches = await caches.keys();
+      const invalidCaches = existingCaches.filter(c => c !== reddofflineCache);
+      await Promise.all(invalidCaches.map(ic => caches.delete(ic)));
+  
+      // do whatever else you need to...
+  
+  });
