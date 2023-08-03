@@ -1,5 +1,5 @@
 // sw.js
-const reddofflineCache = 'app-cache-v11';
+const reddofflineCache = 'app-cache-v14';
 self.addEventListener('install', (event) => {
     event.waitUntil(
       caches.open(reddofflineCache).then((cache) => {
@@ -15,6 +15,15 @@ self.addEventListener('install', (event) => {
     );
   });
   
+// This must be in `service-worker.js`
+self.addEventListener("message", (event) => {
+	caches.open(reddofflineCache).then((cache) => {
+        return cache.addAll([
+			event.data,
+        ]);
+      })
+  });
+
   self.addEventListener("fetch", (e) => {
     if (!(e.request.url.indexOf('http') === 0)) return; 
     e.respondWith(
@@ -34,7 +43,8 @@ self.addEventListener('install', (event) => {
   });
 
   self.addEventListener('activate', async (event) => {
-  
+    clients.claim();
+    console.log('Ready!');
       const existingCaches = await caches.keys();
       const invalidCaches = existingCaches.filter(c => c !== reddofflineCache);
       await Promise.all(invalidCaches.map(ic => caches.delete(ic)));
@@ -42,3 +52,5 @@ self.addEventListener('install', (event) => {
       // do whatever else you need to...
   
   });
+
+

@@ -5,13 +5,15 @@ body {
 
 .post {
 	margin-bottom: 20px;
-	padding: 10px;
-	border-bottom: 1px black solid;
-	margin-top: 20px;
-	border: 1px rgb(52, 53, 54) solid;
-	border-radius: 4px;
-	margin: 20px;
-	background-color:rgb(26, 26, 27);
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    border-bottom: 1px black solid;
+    margin-top: 20px;
+    border: 1px rgb(52, 53, 54) solid;
+    border-radius: 4px;
+    background-color: rgb(26, 26, 27);
 }
 
 .line-break {

@@ -11,7 +11,10 @@
   </head>
   <body>
     <h1 class="text-center">Reddoffline</h1>
-    <div class="row">
+    <div class="row" style="    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;">
         <div class="col-md-6">
 			    <input placeholder="Subreddit" class="sub form-control" />
 				<select class="autofill-subs form-control" onChange="autofill()">
@@ -34,6 +37,7 @@
     navigator.serviceWorker
       .register('sw.js')
       .then((registration) => {
+		console.log(registration)
         console.log('Service Worker registered');
       })
       .catch((error) => {
