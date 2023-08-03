@@ -49,7 +49,7 @@ fetch(url)
         const title = post.data.title;
         const text = post.data.selftext.replaceAll("\n", "<div class='line-break'></div>");
 		//const img = post.data.preview.images[0].source.url || "";
-		sendMessage(img);
+		//sendMessage(img);
 		parsedPosts.push({title:title, text:text});
       });
 	  localStorage.setItem("notes", JSON.stringify(parsedPosts));
